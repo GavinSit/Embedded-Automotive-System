@@ -23,6 +23,10 @@ public class Node<T> {
 		child.getChildren().clear(); // removes all the children associated
 		this.children.remove(child); // removes this node
 	}
+	
+	public void remove() { //remove this Node
+		this.getParent().removeChild(this);
+	}
 
 	public List<Node<T>> getChildren() { // returns children of this node
 		return children;
@@ -37,9 +41,9 @@ public class Node<T> {
 	}
 
 	public T getData() { // returns key value
-		if(data != null) {
-		return data;
-		}else {
+		if (data != null) {
+			return data;
+		} else {
 			return null;
 		}
 	}
@@ -63,7 +67,8 @@ public class Node<T> {
 		// traverses the trees searching from the left nodes to right nodes recursively,
 		// halts when found
 		for (Node<T> n : children) {
-			if (s.equalsIgnoreCase((String) n.getData()) || s.equalsIgnoreCase(n.getType())) {
+			if (s.equalsIgnoreCase((String) n.getData()) || s.equalsIgnoreCase(n.getType())) { // if the children
+																								// contain data needed
 				return n;
 			}
 			grandChildren = n.indexOf(s);
@@ -72,5 +77,21 @@ public class Node<T> {
 			}
 		}
 		return null; // null if not found
+	}
+
+	// TODO: cannot search itself, can only search children
+	public List<Node<T>> indexOfAll(String s) { // same as indexOf() but finds all instances of occurance and returns it
+												// in
+		// arrayList
+		List<Node<T>> found = new ArrayList<Node<T>>();
+
+		for (Node<T> n : children) {
+			if (s.equalsIgnoreCase((String) n.getData()) || s.equalsIgnoreCase(n.getType())) { // checks children
+				found.add(n);
+			}
+			found.addAll(n.indexOfAll(s)); // recursively checks all the branches under the children
+		}
+
+		return found;
 	}
 } // end of Node<T> class
