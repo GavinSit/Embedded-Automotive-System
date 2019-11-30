@@ -126,16 +126,56 @@ class NodeTest {
 		assertFalse(exp == root.indexOfAll("peepee in my pants"), "doesn't fail as expected");
 		assertEquals(exp, root.indexOfAll("Price"), "incorrect nodes in arraylist"); // check that the nodes obj are the
 																						// same as expected
-		
-		//remove a node
+
+		// remove a node
 		exp.remove(2);
 		root.indexOf("NX").indexOf("Price").remove();
-		assertEquals(exp, root.indexOfAll("Price")); //checks if removed itself correctly
-		
-		//remove all nodes of a type 
-		for(Node<String> n : root.indexOfAll("Year")) {
+		assertEquals(exp, root.indexOfAll("Price")); // checks if removed itself correctly
+
+		// remove all nodes of a type
+		for (Node<String> n : root.indexOfAll("Year")) {
 			n.remove();
 		}
 	}
 
+	// test for fixing the bugs encountered in the code thus far
+	@Test
+	void test4() {
+		Node<String> root = new Node<String>("Lexus", "Company");
+
+		// create the category of car
+		root.addChild(new Node<String>("Sedan", "Type of Car"));
+		root.addChild(new Node<String>("SUV", "Type of Car"));
+
+		// add cars to each category as well as their properties
+		Node<String> sed = root.indexOf("Sedan");
+		Node<String> suv = root.indexOf("SUV");
+
+		// add sedans
+		sed.addChild(new Node<String>("IS", "Model"));
+		sed.indexOf("IS").addChild(new Node<String>("2020", "Year"));
+		sed.indexOf("IS").addChild(new Node<String>("41250", "Price"));
+		sed.addChild(new Node<String>("GS", "Model"));
+		sed.indexOf("GS").addChild(new Node<String>("2020", "Year"));
+		sed.indexOf("GS").addChild(new Node<String>("64150", "Price"));
+
+		// add SUVs
+		suv.addChild(new Node<String>("NX", "Model"));
+		suv.indexOf("NX").addChild(new Node<String>("2020", "Year"));
+		suv.indexOf("NX").addChild(new Node<String>("44150", "Price"));
+		suv.addChild(new Node<String>("RX", "Model"));
+		suv.indexOf("RX").addChild(new Node<String>("2020", "Year"));
+		suv.indexOf("RX").addChild(new Node<String>("56050", "Price"));
+
+		assertEquals(4, root.indexOfAll("Price").size(), "incorrect number of elements found");
+
+		// check that search for multiple items display parent nodes correctly
+		List<Node<String>> exp = new ArrayList<Node<String>>(); // expected values when searching for price
+		exp.add(root.indexOf("41250"));
+		exp.add(root.indexOf("64150"));
+		exp.add(root.indexOf("44150"));
+		exp.add(root.indexOf("56050"));
+		assertEquals(exp, root.indexOfAll("Price"), "exp list incorrect");
+
+	}
 }

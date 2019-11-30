@@ -23,8 +23,8 @@ public class Node<T> {
 		child.getChildren().clear(); // removes all the children associated
 		this.children.remove(child); // removes this node
 	}
-	
-	public void remove() { //remove this Node
+
+	public void remove() { // remove this Node
 		this.getParent().removeChild(this);
 	}
 
@@ -93,5 +93,38 @@ public class Node<T> {
 		}
 
 		return found;
+	}
+
+	// Note:
+	// if searching for price or year or corresponding data(), then return parent
+	// if searching for type of car or Model, then return nodes with corresponding
+	// key
+	// if seaching for type of car data() or car model data(), then return children
+
+	public List<Node<T>> Search(String s) { // will return search results based on the type of key (could be returning
+											// itself, parents, or children)
+		List<Node<T>> results = new ArrayList<Node<T>>();
+		// check type it is searching
+		if(this.indexOf(s) == null){ //check if null
+			return null;
+		}else if (this.indexOf(s).getType().equals("Year") || this.indexOf(s).getType().equals("Price")) { // return parent
+			for (Node<T> n : this.indexOfAll(s)) {
+				results.add(n.getParent());
+			}
+		} else if (s.equalsIgnoreCase("Type of Car") || s.equalsIgnoreCase("Model")) { // return all nodes of key 'Type
+																						// of Car' or 'Model'
+			for (Node<T> n : this.indexOfAll(s)) {
+				results.add(n);
+			}
+		} else if (this.indexOf(s).getType().equals("Type of Car") || this.indexOf(s).getType().equals("Model")) { // return
+																													// children
+																													// of
+																													// key
+			for (Node<T> n : this.indexOfAll(s)) {
+				results.addAll(n.getChildren());
+			}
+		}
+
+		return results;
 	}
 } // end of Node<T> class

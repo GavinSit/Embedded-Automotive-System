@@ -19,29 +19,57 @@ public class Main {
 		while (!input.equalsIgnoreCase("e")) {
 			System.out.println("Lexus Automotive System\nSearch (S)\tCreate Entry (C)\tDelete (D)\tExit(E)");
 			input = s.next();
+
 			switch (input.toUpperCase()) {
 			case "S": // search for an item and display the parent (e.g. search a price and find the
 						// car associated with that price
+				List<Node<String>> searchResult;
 				System.out.print("Enter Item to search for: ");
-				input = s.next();
-				if (root.indexOfAll(input).size() == 1) { // 1 item found
-					// TODO
-				} else if (root.indexOfAll(input).size() > 1) { // multiple items found
-					System.out.println("Here are the results found for " + input);
-					for (Node<String> n : root.indexOfAll(input)) { // output the parent node
-						System.out.print(n.getParent().getData() + "\t");
-						//TODO fix bug where it displays the root data too
+				s.nextLine();
+				input = s.nextLine();
+			
+				searchResult = root.Search(input); // run search method
+
+				if (searchResult == null) { // nothing found
+					System.out.println("No results found");
+				} else {
+					System.out.println("Here are the results found for '" + input + "'. There are "
+							+ root.indexOfAll(input).size() + " results.");
+					for (Node<String> n : searchResult) {
+						System.out.print(n.getType() + ": " + n.getData() + "\t");
 					}
-				} else { // not found
-					System.out.println("Item not found");
+					System.out.println("\n");
 				}
+
+				// System.out.print("Enter Item to search for: ");
+				// input = s.next();
+				// if (root.indexOfAll(input).size() == 1) { // 1 item found
+				//
+				// } else if (root.indexOfAll(input).size() > 1) { // multiple items found
+				//
+				// System.out.println("Here are the results found for " + input + ". There are "
+				// + root.indexOfAll(input).size() + " results.");
+				// for (Node<String> n : root.indexOfAll(input)) { // output
+				// if (input.equalsIgnoreCase("Price") || input.equalsIgnoreCase("Year")) { //
+				// if searching by year or price, then display parent node
+				// System.out.print(n.getParent().getData() + "\t");
+				// }else { //display search result children
+				// System.out.println(n.getData() + "\t");
+				// }
+				// }
+				// System.out.println("\n");
+				//
+				// } else { // not found
+				// System.out.println("Item not found");
+				// }
 				break;
 			case "C": // create entry
 				System.out.println("Which item do you want to create?\nCategory (C)\tCar Model (M)");
 				input = s.next();
 				if (input.equalsIgnoreCase("C")) { // create new category
 					System.out.println("What is the name of the new category?");
-					input = s.next();
+					s.nextLine();
+					input = s.nextLine();
 					root.addChild(new Node<String>(input, "Type of Car")); // create new category under root
 				} else if (input.equalsIgnoreCase("M")) {// create new model
 					if (root.getChildren().size() > 0) { // if there is at least one category then user can choose one
@@ -58,9 +86,10 @@ public class Main {
 						if (Integer.parseInt(input) <= root.getChildren().size() && Integer.parseInt(input) >= 1
 								&& isInteger(input)) {
 							System.out.println("What model do you want to create?");
-							input2 = s.next();
+							s.nextLine();
+							input2 = s.nextLine();
 							System.out.println("\n");
-							
+
 							Node<String> newCar = new Node<String>(input2, "Model");
 							root.getChildren().get(Integer.parseInt(input) - 1).addChild(newCar);
 							do { // create year node
@@ -91,7 +120,8 @@ public class Main {
 			case "D": // delete entry
 				System.out.println(
 						"Which entry would you like to delete? Keep in mind, deleting an entry will delete all the children of that node.");
-				input2 = s.next();
+				s.nextLine();
+				input2 = s.nextLine();
 
 				if (root.indexOfAll(input2).size() == 1) {// only one entry found that matcshes
 					root.indexOf(input2).remove();
@@ -193,5 +223,4 @@ public class Main {
 		// only got here if we didn't return false
 		return true;
 	}
-
 }
