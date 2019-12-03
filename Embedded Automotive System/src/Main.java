@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
@@ -9,13 +10,13 @@ public class Main {
 		String input;
 		System.out
 				.println("You can choose to run the following database systems by selecting the number you want to run."
-						+ "\n1. Tree Database 2.iven\rosan, fill in ur part here");
+						+ "\n1. Tree Database 2.Hash Map Database");
 		do {
 			input = s.next();
 			if (input.equalsIgnoreCase("1")) {
 				TreeSystem();
 			} else if (input.equalsIgnoreCase("2")) {
-				// TODO Iven and Rosan enter ur method here
+				HashSystem();
 			}
 		} while (!input.equalsIgnoreCase("1") || !input.equalsIgnoreCase("2")); // loop while input isnt 1 or 2
 		s.close(); //close scanner
@@ -221,5 +222,76 @@ public class Main {
 		}
 		// only got here if we didn't return false
 		return true;
+	}
+	
+	static void HashSystem(){
+		createMap();
+		Scanner s = new Scanner(System.in);
+		String input = "";
+		String input2;
+		while (!input.equalsIgnoreCase("e")) {
+			System.out.println("Lexus Automotive System\nSearch (S)\tCreate Entry (C)\tDelete (D)\tView (V)\tExit(E)");
+			input = s.next();
+
+			switch (input.toUpperCase()) {
+				case "S":
+					break;
+				case "C":
+					break;
+				case "D":
+					break;
+				case "V":
+					break;
+				case "E":
+					System.out.println("Bye.");
+					break;
+				default:
+					invalid();
+					break;
+			}
+		}
+		s.close();
+		//return;
+	}
+	
+	public static void print(HashMap<String,String> map){
+		if(map.isEmpty()){
+			System.out.println("map is empty");
+		}
+		else{
+			System.out.println(map);		
+		}
+	}
+	public static void createMap(){
+
+		HashMap<String, HashMap<String,String> > root = new HashMap<>();
+		HashMap<String, String> sedan = new HashMap<>();
+		HashMap<String, String> suv = new HashMap<>();
+		HashMap<String, String> pfm = new HashMap<>();
+		HashMap<String, String> usd = new HashMap<>();
+		
+		root.put("Sedan", sedan);
+		root.put("SUV", suv);
+		root.put("Performance", pfm);
+		root.put("Used", usd);
+		
+		sedan.put("IS", "Model");
+		sedan.put("GS", "Model");
+		sedan.put("ES", "Model");
+		
+		suv.put("NX", "Model");
+		suv.put("RX", "Model");
+		
+		pfm.put("GS F", "Model");
+		pfm.put("LC", "Model");
+		
+		usd.put("LC", "Model");
+	
+		
+		print(sedan);
+		print(suv);
+		print(pfm);
+		print(usd);
+		
 	}
 }
