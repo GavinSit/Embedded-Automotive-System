@@ -1,0 +1,1 @@
+To Run, run Main.java. From there, you will be able to select which database to use. There will be sample data already inputted. You can add, delete and change the data.

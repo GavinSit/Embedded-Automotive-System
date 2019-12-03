@@ -5,9 +5,20 @@ public class Main {
 	static Node<String> root; // used for tree system
 
 	public static void main(String[] args) {
-
-		// TODO Auto-generated method stub
-		TreeSystem();
+		Scanner s = new Scanner(System.in);
+		String input;
+		System.out
+				.println("You can choose to run the following database systems by selecting the number you want to run."
+						+ "\n1. Tree Database 2.iven\rosan, fill in ur part here");
+		do {
+			input = s.next();
+			if (input.equalsIgnoreCase("1")) {
+				TreeSystem();
+			} else if (input.equalsIgnoreCase("2")) {
+				// TODO Iven and Rosan enter ur method here
+			}
+		} while (!input.equalsIgnoreCase("1") || !input.equalsIgnoreCase("2")); // loop while input isnt 1 or 2
+		s.close(); //close scanner
 	}
 
 	static void TreeSystem() {
@@ -17,7 +28,7 @@ public class Main {
 		String input2; // stores user input
 
 		while (!input.equalsIgnoreCase("e")) {
-			System.out.println("Lexus Automotive System\nSearch (S)\tCreate Entry (C)\tDelete (D)\tExit(E)");
+			System.out.println("Lexus Automotive System\nSearch (S)\tCreate Entry (C)\tDelete (D)\tView (V)\tExit(E)");
 			input = s.next();
 
 			switch (input.toUpperCase()) {
@@ -27,42 +38,21 @@ public class Main {
 				System.out.print("Enter Item to search for: ");
 				s.nextLine();
 				input = s.nextLine();
-			
+
 				searchResult = root.Search(input); // run search method
 
 				if (searchResult == null) { // nothing found
 					System.out.println("No results found");
 				} else {
-					System.out.println("Here are the results found for '" + input + "'. There are "
+					System.out.println("Here are the result(s) found for '" + input + "'. There are "
 							+ root.indexOfAll(input).size() + " results.");
 					for (Node<String> n : searchResult) {
 						System.out.print(n.getType() + ": " + n.getData() + "\t");
 					}
 					System.out.println("\n");
 				}
-
-				// System.out.print("Enter Item to search for: ");
-				// input = s.next();
-				// if (root.indexOfAll(input).size() == 1) { // 1 item found
-				//
-				// } else if (root.indexOfAll(input).size() > 1) { // multiple items found
-				//
-				// System.out.println("Here are the results found for " + input + ". There are "
-				// + root.indexOfAll(input).size() + " results.");
-				// for (Node<String> n : root.indexOfAll(input)) { // output
-				// if (input.equalsIgnoreCase("Price") || input.equalsIgnoreCase("Year")) { //
-				// if searching by year or price, then display parent node
-				// System.out.print(n.getParent().getData() + "\t");
-				// }else { //display search result children
-				// System.out.println(n.getData() + "\t");
-				// }
-				// }
-				// System.out.println("\n");
-				//
-				// } else { // not found
-				// System.out.println("Item not found");
-				// }
 				break;
+
 			case "C": // create entry
 				System.out.println("Which item do you want to create?\nCategory (C)\tCar Model (M)");
 				input = s.next();
@@ -83,8 +73,8 @@ public class Main {
 						input = s.next(); // choose category first
 
 						// if size is in range
-						if (Integer.parseInt(input) <= root.getChildren().size() && Integer.parseInt(input) >= 1
-								&& isInteger(input)) {
+						if (isInteger(input) && Integer.parseInt(input) <= root.getChildren().size()
+								&& Integer.parseInt(input) >= 1 && isInteger(input)) {
 							System.out.println("What model do you want to create?");
 							s.nextLine();
 							input2 = s.nextLine();
@@ -117,6 +107,7 @@ public class Main {
 					}
 				}
 				break;
+
 			case "D": // delete entry
 				System.out.println(
 						"Which entry would you like to delete? Keep in mind, deleting an entry will delete all the children of that node.");
@@ -137,7 +128,8 @@ public class Main {
 						}
 						break;
 					case "N": // dont delete all nodes
-						// TODO: dont delete all nodes
+						System.out.println("Select which number you want to delete");
+						// TODO
 						break;
 					default: // incorrect input
 						invalid();
@@ -146,11 +138,18 @@ public class Main {
 				} else { // nothing found to delete
 					System.out.println("Nothing found to delete");
 				}
-
 				break;
+
+			case "V":
+				System.out.println("Here is all the info as well as their relationship.");
+				System.out.println("Node\t\tValue\t\tKey\tParent");
+				root.display();
+				break;
+
 			case "E": // exit
 				System.out.println("Bye.");
 				break;
+
 			default: // incorrect input
 				invalid();
 				break;

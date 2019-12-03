@@ -105,9 +105,10 @@ public class Node<T> {
 											// itself, parents, or children)
 		List<Node<T>> results = new ArrayList<Node<T>>();
 		// check type it is searching
-		if(this.indexOf(s) == null){ //check if null
+		if (this.indexOf(s) == null) { // check if null
 			return null;
-		}else if (this.indexOf(s).getType().equals("Year") || this.indexOf(s).getType().equals("Price")) { // return parent
+		} else if (this.indexOf(s).getType().equals("Year") || this.indexOf(s).getType().equals("Price")) { // return
+																											// parent
 			for (Node<T> n : this.indexOfAll(s)) {
 				results.add(n.getParent());
 			}
@@ -126,5 +127,18 @@ public class Node<T> {
 		}
 
 		return results;
+	}
+
+	
+	//shows the nodes as well as the parent nodes in a table
+	public void display() { // displays all the nodes
+		System.out.println(this + "\t" + this.getData() + "\t\t" + this.getType() + "\t\t" + this.getParent()); //print this node
+		
+		if (this.getChildren().size() > 0) { // if there are children nodes
+			for (Node<T> n : this.getChildren()) { //goes through all the children nodes
+				//calls recursively to print children
+				n.display();
+			}
+		}
 	}
 } // end of Node<T> class

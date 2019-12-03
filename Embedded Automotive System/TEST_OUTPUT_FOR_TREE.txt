@@ -1,0 +1,131 @@
+Lexus Automotive System
+Search (S)	Create Entry (C)	Delete (D)	View (V)	Exit(E)
+c
+Which item do you want to create?
+Category (C)	Car Model (M)
+c
+What is the name of the new category?
+Concept
+Lexus Automotive System
+Search (S)	Create Entry (C)	Delete (D)	View (V)	Exit(E)
+C
+Which item do you want to create?
+Category (C)	Car Model (M)
+M
+Which category would you like to create it in? (Select the corresponding number)
+1. Sedan     2. SUV     3. Performance     4. Used     5. Concept     5
+What model do you want to create?
+Gavin's New Concept
+
+
+What Year is Gavin's New Concept?
+2030
+What is the price of Gavin's New Concept?
+987654
+Lexus Automotive System
+Search (S)	Create Entry (C)	Delete (D)	View (V)	Exit(E)
+s
+Enter Item to search for: 987654321
+No results found
+Lexus Automotive System
+Search (S)	Create Entry (C)	Delete (D)	View (V)	Exit(E)
+s
+Enter Item to search for: 987654
+Here are the results found for '987654'. There are 1 results.
+Model: Gavin's New Concept	
+
+Lexus Automotive System
+Search (S)	Create Entry (C)	Delete (D)	View (V)	Exit(E)
+d
+Which entry would you like to delete? Keep in mind, deleting an entry will delete all the children of that node.
+asd
+Nothing found to delete
+Lexus Automotive System
+Search (S)	Create Entry (C)	Delete (D)	View (V)	Exit(E)
+v
+Here is all the info as well as their relationship.
+Node		Value		Key	Parent
+Node@42a57993	Lexus		Company		null
+Node@75b84c92	Sedan		Type of Car		Node@42a57993
+Node@6bc7c054	IS		Model		Node@75b84c92
+Node@232204a1	2020		Year		Node@6bc7c054
+Node@4aa298b7	41250		Price		Node@6bc7c054
+Node@7d4991ad	GS		Model		Node@75b84c92
+Node@28d93b30	2020		Year		Node@7d4991ad
+Node@1b6d3586	64150		Price		Node@7d4991ad
+Node@4554617c	ES		Model		Node@75b84c92
+Node@74a14482	2020		Year		Node@4554617c
+Node@1540e19d	45100		Price		Node@4554617c
+Node@677327b6	SUV		Type of Car		Node@42a57993
+Node@14ae5a5	NX		Model		Node@677327b6
+Node@7f31245a	2020		Year		Node@14ae5a5
+Node@6d6f6e28	44150		Price		Node@14ae5a5
+Node@135fbaa4	RX		Model		Node@677327b6
+Node@45ee12a7	2020		Year		Node@135fbaa4
+Node@330bedb4	56050		Price		Node@135fbaa4
+Node@2503dbd3	Performance		Type of Car		Node@42a57993
+Node@4b67cf4d	GS F		Model		Node@2503dbd3
+Node@7ea987ac	2020		Year		Node@4b67cf4d
+Node@12a3a380	99400		Price		Node@4b67cf4d
+Node@29453f44	LC		Model		Node@2503dbd3
+Node@5cad8086	2020		Year		Node@29453f44
+Node@6e0be858	103050		Price		Node@29453f44
+Node@61bbe9ba	Used		Type of Car		Node@42a57993
+Node@610455d6	LC		Model		Node@61bbe9ba
+Node@511d50c0	2003		Year		Node@610455d6
+Node@60e53b93	4000		Price		Node@610455d6
+Node@5e2de80c	Concept		Type of Car		Node@42a57993
+Node@1d44bcfa	Gavin's New Concept		Model		Node@5e2de80c
+Node@266474c2	2030		Year		Node@1d44bcfa
+Node@6f94fa3e	987654		Price		Node@1d44bcfa
+Lexus Automotive System
+Search (S)	Create Entry (C)	Delete (D)	View (V)	Exit(E)
+sdsdfsdf
+Invalid Input
+Lexus Automotive System
+Search (S)	Create Entry (C)	Delete (D)	View (V)	Exit(E)
+29q8w3id
+Invalid Input
+Lexus Automotive System
+Search (S)	Create Entry (C)	Delete (D)	View (V)	Exit(E)
+d
+Which entry would you like to delete? Keep in mind, deleting an entry will delete all the children of that node.
+concept
+Lexus Automotive System
+Search (S)	Create Entry (C)	Delete (D)	View (V)	Exit(E)
+v
+Here is all the info as well as their relationship.
+Node		Value		Key	Parent
+Node@42a57993	Lexus		Company		null
+Node@75b84c92	Sedan		Type of Car		Node@42a57993
+Node@6bc7c054	IS		Model		Node@75b84c92
+Node@232204a1	2020		Year		Node@6bc7c054
+Node@4aa298b7	41250		Price		Node@6bc7c054
+Node@7d4991ad	GS		Model		Node@75b84c92
+Node@28d93b30	2020		Year		Node@7d4991ad
+Node@1b6d3586	64150		Price		Node@7d4991ad
+Node@4554617c	ES		Model		Node@75b84c92
+Node@74a14482	2020		Year		Node@4554617c
+Node@1540e19d	45100		Price		Node@4554617c
+Node@677327b6	SUV		Type of Car		Node@42a57993
+Node@14ae5a5	NX		Model		Node@677327b6
+Node@7f31245a	2020		Year		Node@14ae5a5
+Node@6d6f6e28	44150		Price		Node@14ae5a5
+Node@135fbaa4	RX		Model		Node@677327b6
+Node@45ee12a7	2020		Year		Node@135fbaa4
+Node@330bedb4	56050		Price		Node@135fbaa4
+Node@2503dbd3	Performance		Type of Car		Node@42a57993
+Node@4b67cf4d	GS F		Model		Node@2503dbd3
+Node@7ea987ac	2020		Year		Node@4b67cf4d
+Node@12a3a380	99400		Price		Node@4b67cf4d
+Node@29453f44	LC		Model		Node@2503dbd3
+Node@5cad8086	2020		Year		Node@29453f44
+Node@6e0be858	103050		Price		Node@29453f44
+Node@61bbe9ba	Used		Type of Car		Node@42a57993
+Node@610455d6	LC		Model		Node@61bbe9ba
+Node@511d50c0	2003		Year		Node@610455d6
+Node@60e53b93	4000		Price		Node@610455d6
+Lexus Automotive System
+Search (S)	Create Entry (C)	Delete (D)	View (V)	Exit(E)
+e
+Bye.
