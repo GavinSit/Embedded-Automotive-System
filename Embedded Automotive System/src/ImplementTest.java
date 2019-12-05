@@ -17,10 +17,12 @@ public class ImplementTest {
 	void test1() {
 		HashMap<String, String> Implement = new HashMap<>();
 	  
-		Implement.put("USA", "Washington DC");
-	    Implement.put("Nepal", "Kathmandu");
-	    Implement.put("India", "New Delhi");
-	    Implement.put("Australia", "Sydney");
+		Implement.put("Sedan", "IS");
+	    Implement.put("SUV", "NX");
+	    Implement.put("Performance", "LC");
+
+	    
+	    
 	    assertNotNull(Implement);
 	  
 	    
