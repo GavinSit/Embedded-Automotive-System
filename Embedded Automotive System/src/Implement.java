@@ -66,4 +66,24 @@ public class Implement<K,V> extends HashMap<String,String> implements HashMap<St
 	}
 }
 
+@Test
+	public void testImplement() {
+		HashMap<String, String> Implement = new HashMap<>();
+	  
+		Implement.put("Sedan", "IS");
+	    Implement.put("SUV", "NX");
+	    Implement.put("Performance", "LC");
+
+	    
+	    
+	    assertNotNull(Implement);
+	  
+	    
+	    assertEquals("Sedan", Implement.get("IS"));
+	    assertEquals("SUV", Implement.get("NX"));
+	    assertEquals("Performance", Implement.get("LC"));
+	   
+	}
+}
+
 
